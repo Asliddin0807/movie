@@ -5,8 +5,6 @@ import { useNavigation } from '@react-navigation/native'
 
 const MovieCard = ({ item }) => {
   const navigator = useNavigation()
-  const app = item.item.id
-  console.log(app)
     return (
         <TouchableWithoutFeedback
         onPress={() => navigator.navigate('Movie', item.item.id) }>

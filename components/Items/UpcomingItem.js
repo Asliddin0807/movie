@@ -3,12 +3,12 @@ import React from 'react'
 import { image185 } from '../api/apiRequest'
 import { useNavigation } from '@react-navigation/native'
 
-const UpcomingItem = ({upcoming}) => {
+const UpcomingItem = ({upcoming, title}) => {
     const navigation = useNavigation()
     
   return (
     <View style={style.content}>
-        {/* <Text style={style.title}>{title}</Text> */}
+        <Text style={style.title}>{title}</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}
         contentContainerStyle={{paddingHorizontal: 15}}>
             

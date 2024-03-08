@@ -62,10 +62,9 @@ export const HomeScreen = () => {
             ) : (
                 <ScrollView showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingBottom: 20}}>
-                    
-                    { movie.length > 0 && <MovieItem movie={movie} key={movie}/> }
-                    { upcoming.length > 0 && <UpcomingItem upcoming={upcoming} /> }
-                    { top.length > 0 && <TopRatedMovie rated={top} /> }
+                    { movie && movie.length > 0 && <MovieItem movie={movie} key={movie}/> }
+                    { upcoming && upcoming.length > 0 && <UpcomingItem upcoming={upcoming} title={"Upcoming movies"} /> }
+                    { top && top.length > 0 && <TopRatedMovie rated={top} title={"Top rated movies"}/> }
                 </ScrollView>
             )} 
         </View>

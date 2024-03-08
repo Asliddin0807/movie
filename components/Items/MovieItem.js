@@ -11,12 +11,12 @@ const MovieItem = ({ movie }) => {
             data={movie}
             renderItem={(item) => <MovieCard item={item}/>}
             horizontal
-            showsHorizontalScrollIndicator
+            showsHorizontalScrollIndicator={false}
             bounce={false}
             windowSize={width}
             sliderWidth={width}
             itemWidth={width * 0.7}
-            slideStyle={{ display: 'flex', alignItems: 'center' }} loop/>
+            slideStyle={{ display: 'flex', alignItems: 'center' }} loop />
         </View>
     )
 }

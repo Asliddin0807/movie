@@ -1,30 +1,32 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native'
 import { image185 } from '../api/apiRequest'
-
+import { useNavigation } from '@react-navigation/native'
 export const Cast = ({credits}) => {
-    
-  return (
-    <View>
-        <Text style={style.header_text}>Actors</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{paddingHorizontal: 20}}>
-            {credits.map((item, index) => (
-                <TouchableOpacity key={index}>
-                    <View style={style.actors_solid}>
-                        <Image source={{uri: image185(item.profile_path)}} style={{borderRadius: 50, borderWidth: 1, borderColor: 'gray', width: 100, height: 100}}/>
-                        <Text style={style.profile_name}>
-                            { item.character.length > 7 ? item.character.slice(0, 5) : item.character}...
-                        </Text>
-                        <Text style={style.profile_name}>
-                            { item.original_name.length > 7 ? item.original_name.slice(0, 5) : item.original_name}...
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-            ))}
-        </ScrollView>
-    </View>
-  )
+    const navigator = useNavigation()
+    return (
+        <View>
+            <Text style={style.header_text}>Actors</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{paddingHorizontal: 20}}>
+                {credits.map((item, index) => (
+                    <TouchableOpacity key={index} onPress={() => {
+                        navigator.navigate('Person', item.id)
+                    }}>
+                        <View style={style.actors_solid}>
+                            <Image source={{uri: image185(item.profile_path)}} style={{borderRadius: 50, borderWidth: 1, borderColor: 'gray', width: 100, height: 100}}/>
+                            <Text style={style.profile_name}>
+                                { item.character.length > 7 ? item.character.slice(0, 5) : item.character}...
+                            </Text>
+                            <Text style={style.profile_name}>
+                                { item.original_name.length > 7 ? item.original_name.slice(0, 5) : item.original_name}...
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
+        </View>
+    )
 }
 
 

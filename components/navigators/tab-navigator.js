@@ -4,6 +4,7 @@ import { DetailScreen } from '../screens/DetailScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Ionicons';
 import { SearchScreen } from '../screens/SearchScreen';
+import { PersonScreen } from '../screens/PersonScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,8 @@ const BottomTab = () => {
                         focused ? iconName = 'logo-youtube' : iconName = 'logo-youtube'
                     }else if(route.name == 'Search'){
                         focused ? iconName = 'search' : iconName = 'search-outline'
+                    }else if(route.name == 'Person'){
+                        focused ? iconName = 'star' : iconName = 'star-outline'
                     }
 
                     return <Feather name={iconName} size={size} color={color}/>
@@ -31,6 +34,8 @@ const BottomTab = () => {
                 <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
                 <Tab.Screen name="Search" component={SearchScreen} options={{ headerShown: false }}/>
                 <Tab.Screen name="Movie" component={DetailScreen} options={{ headerShown: false }}/>
+                <Tab.Screen name="Person" component={PersonScreen} options={{ headerShown: false }}/>
+
             </Tab.Navigator>
         </NavigationContainer>
     );
